@@ -1,0 +1,28 @@
+include includes/bemto/bemto.pug
+include includes/__mixins
+
+doctype html
+html(lang="ru")
+    - var title = "Текстовая"
+    include includes/__head
+
+    body
+        .wrapper
+            include includes/__header
+
+            main.main
+                .container
+                    
+                    +breads([
+                        { name: 'Раздел' },
+                        { name: 'Категория' }
+                    ])
+                    
+                    .main__row
+                        .main__content
+                            h1.main__title Типовая текстовая страница, как бы это ни казалось парадоксальным, вызывает декаданс
+                            
+                            .text
+                                p параграф
+
+            include includes/__footer

@@ -1,0 +1,246 @@
+.wis-content
+    color #1c1c1c
+    
+    h1:not([class]), h2:not([class]), h3:not([class]), h4:not([class]), h5:not([class])
+        color #243c83
+        font-weight 800
+    
+    h1:not([class])
+        font-size 42px
+        line-height 44px
+        margin-bottom 35px
+
+    h2:not([class])
+        font-size 36px
+        line-height 40px
+        margin 46px 0 25px
+    
+    h3:not([class])
+        font-size 30px
+        line-height 34px
+        margin 47px 0 26px
+    
+    h4:not([class])
+        font-size 26px
+        line-height 30px
+        margin 30px 0 15px
+    
+    h5:not([class])
+        font-size 22px
+        line-height 26px
+        margin 30px 0 15px
+        
+    h6:not([class])
+        font-size 18px
+        line-height 24px
+        color #243c83;
+        font-weight 700
+        margin 27px 0 15px
+        
+    figure:not([class])
+        margin 33px 0 27px
+        max-width 100%
+        
+        img
+           margin 0
+        
+    figcaption:not([class])
+        display block
+        color rgba(#151515, .5)
+        font-size 16px
+        font-weight 400
+        line-height 24px
+        margin 14px 0 0
+    
+    img:not([class])
+        margin 11px 0
+        max-width 100%
+        margin-left 0
+    
+    * + img:not([class])
+        margin-top 7px
+    
+    ul:not([class])
+        list-style none
+        margin 28px 0
+    
+    * + ul:not([class])
+        margin-top 17px
+    
+    ul:not([class]) ul:not([class]),
+    ol:not([class]) ol:not([class]),
+    ol:not([class]) ul:not([class]),
+    ul:not([class]) ol:not([class])
+        margin-top 17px !important
+    
+    ul:not([class]) li
+        padding-left 60px
+        position relative
+        font-size 16px
+        line-height 24px
+        font-weight 400
+    
+    ul:not([class]) li + li
+        margin-top: 17px
+    
+    ul:not([class]) ol:not([class]),
+    ol:not([class]) ul:not([class]),
+    ul:not([class]) li:not([class]) ol:not([class]),
+    ol:not([class]) li:not([class]) ul:not([class])
+        counter-reset myCounter
+    
+    ul:not([class]) ol:not([class]) li:before
+        height 28px
+        background none
+    
+    ul:not([class]) li:before
+        content ""
+        position absolute
+        width 30px
+        height 1px
+        left 0
+        top 11px
+        background-color #edce8d
+    
+    ol:not([class]) ul:not([class]) li:before
+        content ""
+        width 30px
+        height 1px
+        left 0
+        top 11px
+        background-color #edce8d
+    
+    ol:not([class])
+        list-style none
+        margin 28px 0
+        counter-reset myCounter
+    
+    * + ol:not([class])
+        margin-top 18px
+    
+    ol:not([class]) li
+        padding-left 60px
+        position relative
+        font-size 16px
+        line-height 24px
+        font-weight 400
+    
+    ol:not([class]) li + li
+        margin-top 17px
+    
+    ol:not([class]) li:before
+        counter-increment myCounter
+        content counter(myCounter) "."
+        position absolute
+        left 1px
+        top 0
+        width 28px
+        padding-right 9px
+        text-align left
+        color #edce8d
+        font-weight 700
+        font-size 16px
+        line-height 24px
+        box-sizing border-box
+        height 24px
+        background-color transparent
+    
+    table:not([class])
+        margin 19px 0 33px
+        max-width 100%
+        
+        thead
+            tr
+                position relative
+                text-align left
+                font-size 16px
+                line-height 24px
+
+                th
+                    padding 7px 28px
+                    color #243c83
+                    font-size 16px
+                    font-weight 700
+                    line-height 24px
+                    border none
+                    border-bottom 2px solid #243c83
+
+        tbody
+            tr
+                &:first-child
+                    td
+                        padding-top 29px
+                
+                &:nth-child(even)
+                    background-color #f7f7fa
+                
+                td
+                    padding 8px 26px 9px
+                    color #151515
+                    font-size 16px
+                    font-weight 400
+                    line-height 24px
+                    border none
+        
+
+    b
+        font-weight bold
+    
+    p
+        &:not([class])
+            font-size 16px
+            line-height 24px
+            font-weight 400
+            margin 15px 0
+            
+            & + p
+                margin-top 16px
+    
+    a:not([class])
+        color #243c83
+        font-size 16px
+        line-height 24px
+        font-weight 400
+        border-bottom 1px solid #243c83
+        transition .4s border
+        -webkit-transition .4s border
+        
+        &:hover
+            border-color transparent
+    
+    *:not([class]):not(span):first-child
+        margin-top 0 !important
+    
+    *:not([class]):not(span):last-child
+        margin-bottom 0 !important
+        
+    iframe
+        margin 18px 0 16px !important
+        max-width 100% !important
+        
+    b
+        font-weight 700
+        
+    i
+        font-style italic
+
+input::-webkit-input-placeholder
+    color #98a1b2
+
+input::-moz-placeholder
+    color #98a1b2
+
+input:-ms-input-placeholder
+    color #98a1b2
+
+input:-moz-placeholder
+    color #98a1b2
+
+input.warning,
+textarea.warning
+    border-color #d70122
+    & + .field-wrap__label
+        color #d70122
+
+.hidden-block
+    display none

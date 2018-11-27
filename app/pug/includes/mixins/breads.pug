@@ -1,0 +1,12 @@
+mixin breads(data)
+    +b('nav')(itemscope itemtype="").breadcrumbs&attributes(attributes)
+        +e('ul')(itemscope itemtype="").list
+            each item in data
+                +e('li')(itemprop="itemListElement" itemscope itemtype="").item
+                    if (!item.last) 
+                        +e('a')(href="#", itemprop="item").link
+                            span(itemprop="name") #{item.name}
+
+                    else
+                        +e('a')(itemprop="item").link
+                            span(itemprop="name") #{item.name}
