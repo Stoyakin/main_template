@@ -1,0 +1,43 @@
+.breadcrumbs
+  background-color #f6f5f5
+  padding 29px 0 27px
+
+  &__item
+    display inline-block
+    vertical-align top
+    position relative
+    padding-right 7px
+    margin-right 4px
+
+    &:last-child
+      &:before
+        display none
+        content none
+
+    &:before
+      content '/'
+      display block
+      position absolute
+      color rgba(#222, .8)
+      font-size 15px
+      font-weight 300
+      line-height 19px
+      right -2px
+      top 0
+      height 24px
+
+  &__link
+    display inline-block
+    vertical-align top
+    color rgba(#222, .8)
+    font-size 15px
+    font-weight 300
+    line-height 17px
+
+    &[href]
+      border-bottom 1px solid rgba(#222, .8)
+      transition border .4s
+
+    &:hover
+      &[href]
+        border-bottom-color transparent

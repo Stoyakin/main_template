@@ -1,0 +1,70 @@
+.header
+  position relative
+
+  &__burger
+    display none
+    position absolute
+    top 0
+    right 0
+    width 50px
+    height 50px
+    padding 0
+    outline none
+    border none
+    background #F8F8F8
+    user-select none
+    cursor pointer
+    z-index 10
+
+    @media $tPortraitMax
+      display block
+
+    i
+      display block
+      position absolute
+      width 20px
+      height 2px
+      top auto
+      bottom 19px
+      left 15px
+      transition-delay .13s
+      transition-timing-function cubic-bezier(.55,.055,.675,.19)
+      transition-duration .13s
+      background-color #b2b2b2
+
+      &:before, &:after
+        display block
+        content ""
+        position absolute
+        width 20px
+        height 2px
+        transition-timing-function ease
+        transition-duration .15s
+        transition-property transform
+
+      &:before
+        top -6px
+        transition top .12s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19)
+        background-color #b2b2b2
+
+      &:after
+        top -12px
+        bottom -10px
+        transition top .2s cubic-bezier(.33333,.66667,.66667,1) .2s,opacity .1s linear
+        background-color #b2b2b2
+
+    &--active
+      i
+        transition-delay .22s
+        transition-timing-function cubic-bezier(.215,.61,.355,1)
+        transform translate3d(0,-5px,0) rotate(-45deg)
+
+        &:before
+          top 0
+          transition top .1s cubic-bezier(.33333,0,.66667,.33333) .16s,transform .13s cubic-bezier(.215,.61,.355,1) .25s
+          transform rotate(-90deg)
+
+        &:after
+          top 0
+          transition top .2s cubic-bezier(.33333,0,.66667,.33333),opacity .1s linear .22s
+          opacity 0

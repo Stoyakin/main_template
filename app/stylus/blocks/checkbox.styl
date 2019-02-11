@@ -1,0 +1,163 @@
+.checkbox
+  display inline-block
+  vertical-align top
+  position relative
+  text-align left
+  max-width 510px
+
+  &--square
+    .checkbox
+      &__input
+        &:checked ~ label
+          &:before
+            background-color #222
+            border none
+
+          &:after
+            opacity 1
+
+      &__label
+        color #222
+        font-size 16px
+        line-height 24px
+        padding-left 30px
+        font-weight 500
+
+        &:before
+          left 0px
+          top 3px
+          width 18px
+          height 18px
+          border-radius 0
+          background-color #222
+          border none
+
+        &:after
+          left 4px
+          top 8px
+          border none
+          border-radius 0
+          width 11px
+          height 9px
+          background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJCAQAAABObR6mAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAQMRACRSNmhEAAAAZ0lEQVQI12XOsQ2CABQE0GMGagsoTIilAxhD4ggyAA0lTmHlgi7gAhZ2z4KABu6Kf7nk7l8hG9xSxppXbMwOH7uo7RfzAhoJKEW04CASA16iAscpFzHi6Y3TXDedOzj/Xs/iof9f9AXbEHHvnySGfgAAAABJRU5ErkJggg==') no-repeat center
+
+  &--circle
+    .checkbox
+      &__input
+        &:checked ~ label
+          &:before
+            background-color #fff
+            border-color #EF190B
+
+          &:after
+            opacity 1
+
+
+      &__label
+        line-height 24px
+        padding-left 118px
+
+        &:before
+          left 87px
+          top 2px
+          width 18px
+          height 18px
+          border-radius 10px
+          background-color #e8e7e7
+          border 1px solid #e8e7e7
+
+        &:after
+          left 93px
+          top 8px
+          width 8px
+          height 8px
+          border none
+          border-radius 50%
+          background-color #EF190B
+
+        &-overimg
+          position absolute
+          left 0
+          top 0
+
+  &:last-child
+    margin-bottom 0
+
+  &.warning
+    .checkbox__label:before
+      border-color red
+
+  &__input
+    position absolute
+    left -9999px
+    opacity 0
+
+    &:checked + .checkbox__label
+      &:after
+        opacity 1
+
+  &__label
+    display inline-block
+    vertical-align top
+    width 100%
+    color #5a5958
+    font-size 13px
+    font-weight 300
+    line-height 16px
+    padding-left 28px
+    cursor pointer
+
+    &:hover
+      &:before
+        border-color red
+
+    &:before
+      content ""
+      width 11px
+      height 11px
+      border 1px solid #5a5958
+      border-radius 2px
+      position absolute
+      left 0px
+      top 3px
+      cursor pointer
+      transition border .4s
+
+    &:after
+      content ""
+      position absolute
+      width 7px
+      height 5px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAFCAMAAAC+RAbqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAPFBMVEX/////AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD///95bmCtAAAAE3RSTlMAKLck8HFRKu1dwIIt52MCq99LvQQOqAAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAQIODR0XWx0pAAAAJ0lEQVQI12NgAAFGJjDFzMLKwMbAwM7BycDAxc3DywcU4xcQFAJSAAh6AKxU/O06AAAAAElFTkSuQmCC') no-repeat center
+      left 3px
+      top 7px
+      opacity 0
+      cursor pointer
+      transition opacity .4s
+
+    a
+      color #5a5958
+      font-size 13px
+      font-weight 300
+      line-height 16px
+      border-bottom 1px dashed #5a5958
+      transition border .4s
+
+      &:hover
+        border-bottom-color transparent
+
+    &-overimg
+      display inline-flex
+      align-items center
+      width 77px
+      height 24px
+
+    &-img
+      max-width 100%
+      max-height 100%
+
+    &-text
+      color #222
+      font-size 16px
+      line-height 24px
+      font-weight 300

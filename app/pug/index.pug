@@ -1,41 +1,16 @@
 include includes/bemto/bemto.pug
+include includes/__mixins
 
 doctype html
 html(lang="ru")
-    - var title = "Title"
-    include includes/__head
-    
-    style(type='text/css').
-        .page-list{
-            display: inline-block;
-            vertical-align: top;
-            width: 48%;
-            margin: 30px 0 0 !important;
-        }
-        .page-list-item{
-            margin: 0 0 0 !important;
-        }
-        .page-list-item:before{
-            display: none;
-            content: none;
-        }
+  - var title = "Главная"
+  include includes/partials/head
+  
+  body
+    .wrapper
+      include includes/partials/header
+
+      main.main
+        .container
         
-    body
-        .wrapper(style="overflow-x: hidden;")
-            +b('header').header
-                +e.middle
-                    .container
-                        +e('a').logo-href.h-noselectable(href="/")
-                            +e('img').logo-img(src="../static/i/svg/logo.svg" alt="")
-
-            main.main
-                .main__content
-                    .row
-                        .container
-                            .text
-                                ul.page-list(style="display:inline-block;vertical-align:top;width:45%;margin-right:35px;")
-                                    li.page-list-item
-                                        a(target="_blank" href="01-main.html")
-
-            script(src="../static/js/vendor.js")
-            script(src="../static/dev/js/common.js")
+      include includes/partials/footer

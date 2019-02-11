@@ -1,0 +1,269 @@
+.red
+  color #f52625
+
+.text
+  color #222
+
+  h1:not([class]), h2:not([class]), h3:not([class]), h4:not([class]), h5:not([class])
+    color #222
+    font-weight 500
+
+  h1:not([class])
+    font-size 36px
+    line-height 42px
+    margin-bottom 40px
+
+  h2:not([class])
+    font-size 30px
+    line-height 36px
+    margin 30px 0 20px
+
+  h3:not([class])
+    font-size 24px
+    line-height 30px
+    margin 30px 0 20px
+
+  h4:not([class])
+    font-size 20px
+    line-height 26px
+    margin 30px 0 20px
+
+  h5:not([class])
+    font-size 18px
+    line-height 24px
+    margin 30px 0 20px
+
+  figure:not([class])
+    margin 30px 0
+    max-width 100%
+
+  figcaption:not([class])
+    color #222
+    font-size 16px
+    font-weight 300
+    line-height 24px
+
+  img:not([class])
+    margin 20px 0
+    max-width 100%
+    margin-left 0
+
+  * + img:not([class])
+    margin-top 15px
+
+  ul:not([class])
+    list-style none
+    margin 25px 0
+
+    ul:not([class])
+      margin 20px 0 10px 15px
+
+      ul:not([class])
+        margin-top 10px
+
+        li + li
+          margin-top 5px
+
+  * + ul:not([class])
+    margin-top 20px
+
+  ul:not([class]) ul:not([class]),
+  ol:not([class]) ol:not([class]),
+  ol:not([class]) ul:not([class]),
+  ul:not([class]) ol:not([class])
+    margin-top 20px
+
+  ul:not([class]) li
+    padding-left 34px
+    position relative
+    font-size 18px
+    line-height 24px
+    font-weight 400
+
+  ul:not([class]) li + li
+    margin-top: 20px
+
+  ul:not([class]) ol:not([class]),
+  ol:not([class]) ul:not([class]),
+  ul:not([class]) li:not([class]) ol:not([class]),
+  ol:not([class]) li:not([class]) ul:not([class])
+    counter-reset myCounter
+
+  ul:not([class]) ol:not([class]) li:before
+    height 28px
+    background none
+
+  ul:not([class]) li:before
+    content ""
+    position absolute
+    display block
+    left 0
+    top 1px
+    width 19px
+    height 15px
+    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAPCAMAAAAxmgQeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApVBMVEX/AAD/////AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD///8JkNz9AAAANXRSTlMAAHS4BV7cV89NxEbMAT7TJd+dN9kL+n8x/eAOn20o+OcVpF8c8+0btHbaIsP2KdQuDRnHTqSjj40AAAABYktHRAH/Ai3eAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wECDTUwR11D/gAAAIJJREFUGNNdyVcSgkAABNFZxSwmTGAOmLPO/a/mQFHKbn++BpwKRc+lEll2qEKyalNNVDcWNURN37KWqO0Zg063l1Eg6g+MbEiOUhqHZDRBYlPdmWi+IJcrpIa1cINtTO72yAwH4fFExmf8DBcmXW/ImX8XhQ/kDc+IDGAbXu8P/vYFs4cPg7pJcioAAAAASUVORK5CYII=') no-repeat center
+
+  ol:not([class]) ul:not([class]) li:before
+    content ""
+    left 0
+    top 1px
+    width 19px
+    height 15px
+    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAPCAMAAAAxmgQeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApVBMVEX/AAD/////AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD///8JkNz9AAAANXRSTlMAAHS4BV7cV89NxEbMAT7TJd+dN9kL+n8x/eAOn20o+OcVpF8c8+0btHbaIsP2KdQuDRnHTqSjj40AAAABYktHRAH/Ai3eAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wECDTUwR11D/gAAAIJJREFUGNNdyVcSgkAABNFZxSwmTGAOmLPO/a/mQFHKbn++BpwKRc+lEll2qEKyalNNVDcWNURN37KWqO0Zg063l1Eg6g+MbEiOUhqHZDRBYlPdmWi+IJcrpIa1cINtTO72yAwH4fFExmf8DBcmXW/ImX8XhQ/kDc+IDGAbXu8P/vYFs4cPg7pJcioAAAAASUVORK5CYII=') no-repeat center
+
+  ol:not([class])
+    list-style none
+    margin 20px 0
+    counter-reset myCounter
+
+    ol:not([class])
+      margin 20px 0 10px 15px
+
+      ol:not([class])
+        margin-top 10px
+
+        li + li
+          margin-top 5px
+
+  * + ol:not([class])
+    margin-top 20px
+
+  ol:not([class]) li
+    padding-left 0
+    position relative
+    font-size 18px
+    line-height 24px
+    font-weight 400
+
+  ol:not([class]) li + li
+    margin-top 20px
+
+  ol:not([class]) li:before
+    counter-increment myCounter
+    content counters(myCounter,".")"."
+    position relative
+    width 28px
+    padding-right 5px
+    text-align left
+    color #222
+    font-size 18px
+    line-height 24px
+    font-weight 400
+    box-sizing border-box
+    height 24px
+    background-color transparent
+
+  table:not([class])
+    margin 30px 0 40px
+    max-width 100%
+    border 1px solid #d2d2d2
+
+    tr
+      position relative
+      text-align left
+      font-size 18px
+      line-height 24px
+
+      &:first-child
+        td
+          padding 15px 20px 12px 19px
+          font-size 18px
+          line-height 24px
+          font-weight 400
+          color #fff
+          background-color #d2d2d2
+          border none
+
+        &:last-child
+          td
+            border-bottom none
+
+      td
+        padding 16px 17px 12px 19px
+        color #222
+        font-size 18px
+        line-height 24px
+        font-weight 400
+        vertical-align top
+        position relative
+        border-right 1px solid rgba(#d2d2d2, .2)
+        border-bottom 1px solid rgba(#d2d2d2, .2)
+
+        &:last-child
+          border-right none
+  b
+    font-weight bold
+
+  p
+    &:not([class])
+      font-size 18px
+      line-height 24px
+      font-weight 400
+      margin 20px 0
+
+      & + p
+        margin-top 20px
+
+  a:not([class])
+    color red
+    font-size 18px
+    line-height 24px
+    font-weight 400
+    border-bottom 1px solid red
+    transition .4s border
+    -webkit-transition .4s border
+
+    &:hover
+      border-color transparent
+
+  a.grey
+    color #222
+    font-size 18px
+    line-height 24px
+    font-weight 400
+    border-bottom 1px solid #222
+    transition .4s border
+    -webkit-transition .4s border
+
+    &:hover
+      border-color transparent
+
+  a.big
+    position relative
+    margin-left 30px
+    color red
+    font-size 24px
+    line-height 24px
+    font-weight 400
+    border-bottom 2px solid red
+    transition .4s border
+    -webkit-transition .4s border
+
+    &:before
+      @extend .before
+      left -35px
+      top 4px
+      width 25px
+      height 25px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAMAAADzN3VRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA2FBMVEX/AAD/////AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD////Jteh6AAAARnRSTlMAADef3uMPLablLGLLxFPxE/T4zSWLvxAr0xxfAvZnbBvO2AUWAU3QIwfJ4WT5yLMydLeVZt/qVfvKe/JUFPVdQpjtzIcZ9+E0hAAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAQMWMyCkf9/oAAAAy0lEQVQoz23QZRuCMBQF4Iuo2AUGdjcqdgfq/v9PkhWi2/m0Z++zuAcAAmowFAYehQdAQ24iMoliQTFR4gRQQpQkFZQSJM0EZf4lyyAniE4hagi35QkUiuIPShjSIJvHxI+UZVLBh3SZVGuY6hKBBvlDUyLQwtLuSKRLm+tw6XkCfUKDIZHReJLyBKaErAqWmbuaL7iATTtaaqDS1cqbcM2K3fDqt96EOwv9ZP8tzDj8yBh8OZ58cvYLXGyT7V9vCvzl/mg5zvP1VpQPHJ84NrhyJ04AAAAASUVORK5CYII=') no-repeat center
+
+    &:hover
+      border-color transparent
+
+  iframe
+    margin 20px 0  !important
+    max-width 100% !important
+
+  ul:not([class]):last-child,
+  ol:not([class]):last-child,
+  p:not([class]):last-child,
+  iframe:last-child,
+  table:not([class])
+    margin-bottom 0 !important
+
+  p:not([class]):first-child,
+  table:not([class])
+    margin-top 0 !important
+
+.hidden-block
+  display none

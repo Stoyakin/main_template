@@ -1,0 +1,28 @@
++b.popup.--feedback#feedback.mfp-hide
+  +e.container
+    +e('h3').title Закажите обратный звонок
+    +e('p').text Введите ваше имя и телефон. <br>Специалист свяжется с вами 
+      b в течение 15 минут
+      |  для согласования удобного времени посещения автосервиса.
+    +e.content
+      +b('form').form.--feedback
+        +e.row
+          +e.field
+            +e('label')(for="p_name").field-label Введите Имя
+            +e('input')(type="text" id="p_name" data-req="req" placeholder="Введите ваше имя").field-input
+                  
+        +e.row
+          +e.field
+            +e('label')(for="p_phone").field-label Введите номер телефона
+              span.red *
+            +e('input')(type="text" id="p_phone" data-req="req" placeholder="+7 (___) ___ - __ - __").field-input.js-phone
+
+        +e.row
+          +e.field
+            +e('button')(type="submit").field-submit.btn Заказать обратный звонок
+
+        +e.row
+          +b.checkbox
+            +e('input').input(type="checkbox" id="agreement4" name="agreement" data-req="req" data-type="checkbox_personal" checked)
+            +e('label').label(for="agreement4") Я даю согласие на обработку персональных данных в соответствии с законом 
+                a(href="") № 152-ФЗ «О персональных данных»
