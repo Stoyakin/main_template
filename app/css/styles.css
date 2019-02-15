@@ -275,6 +275,20 @@ textarea {
   overflow: auto;
   vertical-align: top;
 }
+.before,
+.after,
+.jq-selectbox__trigger-arrow:before {
+  content: '';
+  position: absolute;
+  display: block;
+}
+.centerPos {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 .container {
   width: 100%;
   max-width: 100%;
@@ -321,20 +335,6 @@ body.open-menu {
   overflow-x: hidden;
   z-index: 1;
   min-height: 100vh;
-}
-.before,
-.after,
-.jq-selectbox__trigger-arrow:before {
-  content: '';
-  position: absolute;
-  display: block;
-}
-.centerPos {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 .jq-selectbox {
   width: 100%;

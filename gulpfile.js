@@ -118,11 +118,20 @@ function js(src, dst, fileName) {
   return function () {
     return gulp.src(src)
       .pipe($.sourcemaps.init())
+      .pipe($.babel({
+        compact: false,
+        presets: ["@babel/preset-env"],
+        ignore: ['what-input.js', 'swiper.js']
+      }))
       .pipe($.plumber({
         errorHandler: $.notify.onError({
           title: 'JS error',
           message: '<%= error.message %>'
         })
+      }))
+      .pipe($.notify({
+        title: 'JS-babel',
+        message: 'JS-babel complete'
       }))
       .pipe($.changed(dst, {
         extension: '.js'
@@ -176,31 +185,15 @@ gulp.task('css', css([
 gulp.task('csspack', csspack([src.build.css + 'styles.css'], src.build.css));
 
 // Собираем JS
-
-gulp.task("babel", function () {
-  return gulp.src(src.app.js + 'vanila/common.js')
-    .pipe($.babel({
-      compact: false,
-      presets: ["@babel/preset-env"],
-      ignore: ['what-input.js', 'swiper.js']
-    }))
-    .pipe(gulp.dest(src.app.js))
-    .pipe($.notify({
-      title: 'JS-babel',
-      message: 'JS-babel complete',
-      onLast: true
-    }));
-});
-
-gulp.task('js-own', js([ src.app.js + '*' ], src.build.js, 'own.js'));
+gulp.task('js-own', js([ src.app.js + 'common.js' ], src.build.js, 'own.js'));
 
 gulp.task('js-vendor', js(
   [
     // 'node_modules/jquery/dist/jquery.js',
     // 'node_modules/jquery-ui-dist/jquery-ui.min.js',
     // 'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
-    // 'node_modules/systemjs/dist/system.js',
-    // 'node_modules/babel-polyfill/dist/polyfill.js',
+    'node_modules/systemjs/dist/system.js',
+    'node_modules/babel-polyfill/dist/polyfill.js',
     // 'node_modules/swiper/dist/js/swiper.js',
     // 'node_modules/jquery-form-styler/dist/jquery.formstyler.min.js',
     // 'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
@@ -217,7 +210,7 @@ gulp.task(
   'js',
   function () {
     gulp.start('js-vendor');
-    gulp.start('babel');
+    //sgulp.start('babel');
     gulp.start('js-own');
   }
 );
@@ -247,18 +240,10 @@ gulp.task('watch', function () {
   gulp.watch(src.app.pug + '*.pug', ['setWatch', 'pug']);
   gulp.watch(src.app.stylus + '**/*.styl', ['stylus']);
   gulp.watch(src.app.css + 'styles.css', ['css']);
-  gulp.watch(src.app.js + '**/*.js', ['babel', 'js-own']);
+  //  gulp.watch(src.build.css + 'styles.css', ['csspack']);
+  gulp.watch(src.app.js + '**/*.js', ['js-own']);
+  //gulp.watch(src.app.js + '**/*.js', ['babel', 'js-own']);
 });
-
-//Watch-таск для работы
-//gulp.task('watch', function () {
-//  gulp.start('default');
-//  gulp.watch(src.app.pug + '*.pug', ['setWatch', 'pug']);
-//  gulp.watch(src.app.stylus + '**/*.styl', ['stylus']);
-//  gulp.watch(src.app.css + 'styles.css', ['css']);
-//  gulp.watch(src.build.css + 'styles.css', ['csspack']);
-//  gulp.watch(src.app.js + '**/*.js', ['babel', 'js-own']);
-//});
 
 // Сборка проекта
 gulp.task('build', ['setWatch', 'pug', 'stylus', 'css', 'js']);

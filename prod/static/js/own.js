@@ -1,15 +1,26 @@
 "use strict";
 
-$(function () {
+document.addEventListener("DOMContentLoaded", function (event) {
   window.site = {};
   window.site.form = {
     init: function init() {
-      var _th = this;
+      var _th = this,
+          form = document.querySelectorAll('form'),
+          fieldPhone = document.querySelectorAll('.js-phone');
 
-      $('.js-phone').mask('+7(999) 999-9999');
-      $('form').submit(function () {
-        if (!_th.checkForm($(this))) return false;
-      });
+      for (var i = 0; i < fieldPhone.length; i++) {
+        fieldPhone[i].mask('+7(999) 999-9999');
+      }
+
+      var _loop = function _loop(_i) {
+        form[_i].submit(function () {
+          if (!_th.checkForm(form[_i])) return false;
+        });
+      };
+
+      for (var _i = 0; _i < form.length; _i++) {
+        _loop(_i);
+      }
     },
     checkForm: function checkForm(form) {
       var checkResult = true;
@@ -59,8 +70,39 @@ $(function () {
     }
   }.init();
   window.site.obj = {
+    fadeOut: function fadeOut(selector, duration) {
+      var element = document.querySelector(selector),
+          op = 1;
+      if (!element) return;
+      var timer = setInterval(function () {
+        if (op <= 0.1) {
+          clearInterval(timer);
+          element.style.display = 'none';
+        }
+
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+      }, duration / 10 || 20);
+    },
+    fadeIn: function fadeIn(selector, duration) {
+      var element = document.querySelector(selector),
+          op = 0.1;
+      if (!element) return;
+      element.style.opacity = 0;
+      element.style.display = 'block';
+      var timer = setInterval(function () {
+        if (op >= 1) {
+          clearInterval(timer);
+        }
+
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+      }, duration / 10 || 20);
+    },
     map: function map() {
-      var $map = $('.js-map'),
+      var $map = document.querySelector('.js-map'),
           coords = $map.data('coords').split(',');
       ymaps.ready(function () {
         var myMap = new ymaps.Map("yaMap", {
@@ -105,97 +147,43 @@ $(function () {
         return false;
       });
     },
-    init: function init() {
+    burger: function burger() {
       var _th = this,
-          $body = $('body'); //check ios
+          $body = document.querySelector('body');
 
+      document.querySelector('.js-burger').addEventListener('click', function () {
+        var _t = this;
 
-      if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-        $body.addClass('ios');
-      }
+        if (!_t.classList.contains('header__burger--active')) {
+          _t.classList.add('header__burger--active');
 
-      if ($('.js-map').length) {
-        _th.map();
-      }
+          _th.fadeIn('.nav');
 
-      if ($('.js-tabs').length) {
-        _th.tabs();
-      }
+          $body.classList.add('open-menu');
+        } else {
+          _t.classList.remove('header__burger--active');
 
-      if ($('.js-swiper-icar').length) {
-        var iplusesSlider = new Swiper('.js-swiper-icar', {
-          loop: false,
-          speed: 750,
-          slidesPerView: 3,
-          spaceBetween: 84,
-          mousewheel: false,
-          grabCursor: false,
-          keyboard: false,
-          simulateTouch: false,
-          allowSwipeToNext: false,
-          allowSwipeToPrev: false,
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          },
-          breakpoints: {
-            991: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-              autoHeight: true
-            }
-          }
-        });
-      }
+          _th.fadeOut('.nav');
 
-      if ($('.js-mfp').length) {
-        $('.js-mfp').magnificPopup({
-          type: 'inline',
-          midClick: true,
-          callbacks: {
-            open: function open() {}
-          }
-        });
-      }
+          $body.classList.remove('open-menu');
+        }
 
-      $('.js-close-popup').on('click', function () {
-        $.magnificPopup.close();
         return false;
       });
+    },
+    init: function init() {
+      var $body = document.querySelector('body'),
+          yaMap = document.querySelector('.js-map') || false,
+          tabs = document.querySelector('.js-tabs') || false,
+          burger = document.querySelector('.js-burger') || false; //check ios
 
-      if ($('.js-burger').length) {
-        $('.js-burger').on('click', function () {
-          var _t = $(this),
-              menu = $('.nav');
-
-          if (!_t.hasClass('header__burger--active')) {
-            _t.addClass('header__burger--active');
-
-            $body.addClass('open-menu');
-            menu.fadeIn(350);
-          } else {
-            _t.removeClass('header__burger--active');
-
-            menu.fadeOut(350);
-            $body.removeClass('open-menu');
-          }
-
-          return false;
-        });
+      if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+        $body.classList.add('ios');
       }
 
-      if ($('.js-select').length) {
-        $('.js-select').styler({
-          selectSmartPositioning: false,
-          onFormStyled: function onFormStyled() {}
-        });
-      }
-
-      $(document).on('click', function (e) {
-        if (!$(e.target).closest(".new-class").length) {
-          e.stopPropagation();
-        }
-      });
+      if (yaMap) this.map();
+      if (tabs) this.tabs();
+      if (burger) this.burger();
       return this;
     }
   }.init();
