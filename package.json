@@ -57,6 +57,6 @@
     "uglify-js": "^3.4.9",
     "browser-sync": "^2.24.4",
     "lightgallery": "^1.6.11",
-    "pug": "^2.0.3"
+    "pug": "^3.0.1"
   }
 }
